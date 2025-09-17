@@ -1,0 +1,1 @@
+<div class="mt-4">&copy; H Team 2025.</p>
