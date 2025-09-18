@@ -22,7 +22,7 @@ require_once '../config/db.php';
                 Thông báo
             </div>
             <div class="card-body">
-                <div class="alert alert-danger"><?php echo $error_message; ?><a href="/" class="alert alert-link">.Quay lại</a>
+                <div class="alert alert-success"><?php echo $message; ?><a href="/" class="alert alert-link">.Quay lại</a>
                 </div>
             </div>
         </div>
