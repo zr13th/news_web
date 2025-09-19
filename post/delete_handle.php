@@ -1,5 +1,7 @@
 <?php
 require_once '../config/db.php';
+$requireEditor = true;
+require_once '../admin/check_auth.php';
 
 $ID = $_GET['id'];
 

@@ -1,6 +1,9 @@
 <?php
 require_once '../config/db.php';
 
+$requireAdmin = true;
+require_once '../admin/check_auth.php';
+
 $TenChuDe = $_POST['TenChuDe'];
 
 try {

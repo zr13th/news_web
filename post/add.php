@@ -1,5 +1,7 @@
 <?php
 require_once '../config/db.php';
+$requireEditor = true;
+require_once '../admin/check_auth.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +22,7 @@ require_once '../config/db.php';
         <div class="card mt-3">
             <h5 class="card-header">Thêm bài viết</h5>
             <div class="card-body">
-                <form action="add_handle.php" method="post" class="needs-validation" novalidate>
+                <form action="add_handle.php" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="MaChuDe" class="form-label">Chủ đề</label>
                         <select class="form-select" id="MaChuDe" name="MaChuDe" required>
@@ -52,6 +54,11 @@ require_once '../config/db.php';
                         <label for="NoiDung" class="form-label">Nội dung bài viết</label>
                         <textarea class="form-control" id="NoiDung" name="NoiDung" required></textarea>
                         <div class="invalid-feedback">Nội dung bài viết không được bỏ trống.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="HinhAnh" class="form-label">Ảnh bìa</label>
+                        <input type="file" class="form-control" id="HinhAnh" name="HinhAnh" accept="image/*" required>
+                        <div class="invalid-feedback">Vui lòng chọn ảnh bìa.</div>
                     </div>
                     <button type="submit" class="btn btn-warning"><i class="bi bi-floppy"></i> Đăng tải</button>
                 </form>

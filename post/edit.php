@@ -1,5 +1,7 @@
 <?php
 require_once '../config/db.php';
+$requireEditor = true;
+require_once '../admin/check_auth.php';
 
 $id = $_GET['id'];
 
@@ -30,8 +32,8 @@ $result = $cmd->fetch();
         <div class="card mt-3">
             <h5 class="card-header">Sửa bài viết</h5>
             <div class="card-body">
-                <form action="edit_handle.php" method="post" class="needs-validation" novalidate>
-                    <input type="text" name="ID" hidden />
+                <form action="edit_handle.php" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
+                    <input type="text" name="ID" value="<?php echo $result['ID']; ?>" hidden />
                     <div class="mb-3">
                         <label for="MaChuDe" class="form-label">Chủ đề</label>
                         <select class="form-select" id="MaChuDe" name="MaChuDe" required>
@@ -67,6 +69,10 @@ $result = $cmd->fetch();
                             <?php echo $result['NoiDung'] ?>
                         </textarea>
                         <div class="invalid-feedback">Nội dung bài viết không được bỏ trống.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="HinhAnh" class="form-label">Ảnh bìa</label>
+                        <input type="file" class="form-control" id="HinhAnh" name="HinhAnh" accept="image/*">
                     </div>
                     <button type="submit" class="btn btn-warning"><i class="bi bi-floppy"></i> Cập nhật</button>
                 </form>

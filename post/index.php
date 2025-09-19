@@ -1,5 +1,7 @@
 <?php
 require_once '../config/db.php';
+$requireEditor = true;
+require_once '../admin/check_auth.php';
 ?>
 
 <!DOCTYPE html>
@@ -28,11 +30,11 @@ require_once '../config/db.php';
                     <thead>
                         <tr>
                             <th width="5%">#</th>
-                            <th width="20%">Người đăng</th>
+                            <th width="15%">Người đăng</th>
                             <th width="10%">Chủ đề</th>
                             <th width="40%">Tiêu đề</th>
                             <th width="15%">Ngày đăng</th>
-                            <th width="5%" title="Tình trạng kiểm duyệt">D?</th>
+                            <th width="7%" title="Tình trạng kiểm duyệt">D?</th>
                             <th width="5%">Sửa</th>
                             <th width="5%">Xóa</th>
                         </tr>
@@ -53,7 +55,12 @@ require_once '../config/db.php';
                                     <td>' . $stt++ . '</td>
                                     <td>' . $value['HoVaTen'] . '</td>
                                     <td>' . $value['TenChuDe'] . '</td>
-                                    <td>' . $value['TieuDe'] . '</td>
+
+                                    <td>
+                                        <a href="detail.php?id=' . $value['ID'] . '" class="text-decoration-none">
+                                        ' . $value['TieuDe'] . '
+                                        </a>
+                                    </td>
                                     <td>' . $value['NgayDang'] . '</td>
                                     <td>' . ($value['KiemDuyet'] == 1 ? "Đã duyệt" : "Chưa duyệt") . '</td>
                                     <td class="text-center">

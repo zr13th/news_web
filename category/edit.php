@@ -1,5 +1,6 @@
 <?php
-include_once '../config/db.php';
+$requireAdmin = true;
+require_once '../admin/check_auth.php';
 
 $id = $_GET['id'];
 
